@@ -35,7 +35,10 @@ function Operation({ operation, operations, setOperations }) {
                         : "event"}>
             <div className="event-header">
                 <h3>{operation.name ? operation.name : "Senza nome"}</h3>
-                <p>{operation.state ? operation.state : "--"}</p>
+                <p className={operation.state === "Completato" ? "highlight-green"
+                    : operation.state === "In corso" ? "highlight-yellow"
+                    : operation.state === "Da fare" ? "highlight-red"
+                    : null}>{operation.state ? operation.state.toUpperCase() : "--"}</p>
             </div>
 
             <div className="event-details">
@@ -43,7 +46,6 @@ function Operation({ operation, operations, setOperations }) {
             </div>
 
             <div className="event-schedules">
-                <p>Creato: {operation.date ? operation.date : "--"}</p>
                 {operation.state !== "Completato" ? 
                     <p>Da consegnare: {operation.deliveryTime ? operation.deliveryTime : "--"}</p>
                 : null }

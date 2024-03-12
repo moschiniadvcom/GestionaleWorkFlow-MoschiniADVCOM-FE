@@ -6,7 +6,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import Operation from "./Operation";
 import OperationForm from "./OperationForm";
 
-function FirstView({ isConnected }) {
+function FirstView() {
     const [operations, setOperations] = React.useState([]);
     const [isAddShowed, setIsAddShowed] = React.useState(false);
 
@@ -46,10 +46,6 @@ function FirstView({ isConnected }) {
                 <div className="add-overlay">
                     <OperationForm setIsShowed={setIsAddShowed} getOperations={getOperations} />
                 </div> : null}
-            {!isConnected && 
-                <div className="no-see-overlay">
-                    <p>Esegui l'accesso per visualizzare <br></br> (in alto a destra)</p>
-                </div>}
         </section> 
     );
 }

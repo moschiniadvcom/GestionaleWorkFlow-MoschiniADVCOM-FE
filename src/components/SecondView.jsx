@@ -12,8 +12,9 @@ const config = {
 
 const apiCalendar = new ApiCalendar(config);
 
-function SecondView({ isConnected, setIsConnected }) {
+function SecondView() {
     const [events, setEvents] = React.useState([]);
+    const [isConnected, setIsConnected] = React.useState(false);
 
     function handleLoginClick() {
         apiCalendar.handleAuthClick()

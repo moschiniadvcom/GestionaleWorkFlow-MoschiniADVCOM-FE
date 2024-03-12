@@ -52,11 +52,29 @@
     border-radius: 10px;
     padding: 1rem;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
     transition: all .3s ease-in-out;
 }
 
 .event-completed {
     background-color: #ceffcb;
+}
+
+.highlight-red {
+    color: red;
+    font-weight: bold;
+}
+
+.highlight-yellow {
+    color: rgb(255, 187, 0);
+    font-weight: bold;
+}
+
+.highlight-green {
+    color: green;
+    font-weight: bold;
 }
 
 .event-in-progress {
@@ -82,38 +100,36 @@
     font-size: 1.125rem;
 }
 
-.event-details, .event-schedules {
-    margin-top: 1rem;
-}
-
 .event-details p {
     font-size: 1.125rem;
 }
 
 .event-schedules {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 2rem;
     align-items: center;
 }
 
-.event-schedules p:nth-child(2) {
+.event-schedules p {
     font-weight: bold;
+    text-align: right;
     color: red;
 }
 
 .event-footer {
     display: flex;
     gap: 1.5rem;
+    justify-content: space-between;
     align-items: center;
-    margin-top: 2rem;
 }
 
 .complete-btn {
-    background-color: #a7ffa1;
-    color: black;
+    background-color: #00d312;
+    color: white;
+    font-weight: bold;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.25rem;
     border-radius: 5px;
     cursor: pointer;
     transition: all .3s ease-in-out;
@@ -121,14 +137,15 @@
 }
 
 .complete-btn:hover {
-    background-color: #9bea95;
+    background-color: #0bac00;
 }
 
 .edit-btn {
-    background-color: #b7dcff;
-    color: black;
+    background-color: #008ee0;
+    color: white;
+    font-weight: bold;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.25rem;
     border-radius: 5px;
     cursor: pointer;
     transition: all .3s ease-in-out;
@@ -136,14 +153,15 @@
 }
 
 .edit-btn:hover {
-    background-color: #a9d0f5;
+    background-color: #006ace;
 }
 
 .delete-btn {
-    background-color: #ff9f9f;
-    color: black;
+    background-color: #ff0000;
+    color: white;
+    font-weight: bold;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.25rem;
     border-radius: 5px;
     cursor: pointer;
     transition: all .3s ease-in-out;
@@ -151,7 +169,7 @@
 }
 
 .delete-btn:hover {
-    background-color: #f58f8f;
+    background-color: #d10000;
 }
 
 .add-btn {
@@ -227,16 +245,16 @@
     gap: 1rem;
 }
 
-.form-block label {
-    display: block;
-}
-
-.full-width {
+.form-block input {
     width: 100%;
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-top: 0.25rem;
+    margin-top: .25rem;
+}
+
+.form-block label {
+    display: block;
 }
 
 .form-block textarea {
@@ -246,23 +264,6 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-top: 0.25rem;
-}
-
-.inline-inputs {
-    display: flex;
-    gap: 1rem;
-}
-
-.inline-inputs .form-block {
-    flex: 1;
-}
-
-.inline-inputs input {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    margin-top: .25rem;
-    border-radius: 5px;
 }
 
 .form-block select {

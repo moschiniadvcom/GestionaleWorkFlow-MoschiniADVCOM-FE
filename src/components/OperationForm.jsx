@@ -8,7 +8,6 @@ function OperationForm({ setIsShowed, getOperations, operation, method, setOpera
     const [inputOperation, setInputOperation] = React.useState({
         name: "",
         description: "",
-        date: "",
         deliveryTime: "",
         state: selectedState
     });
@@ -65,7 +64,6 @@ function OperationForm({ setIsShowed, getOperations, operation, method, setOpera
         setInputOperation({
             name: "",
             description: "",
-            date: "",
             deliveryTime: "",
             state: selectedState
         });
@@ -85,7 +83,6 @@ function OperationForm({ setIsShowed, getOperations, operation, method, setOpera
                         ...operation,
                         name: inputOperation.name,
                         description: inputOperation.description,
-                        date: inputOperation.date,
                         deliveryTime: inputOperation.deliveryTime,
                         state: inputOperation.state
                     };
@@ -109,21 +106,15 @@ function OperationForm({ setIsShowed, getOperations, operation, method, setOpera
             <div className="form-inputs">
                 <div className="form-block">
                     <label htmlFor="name">Nome</label>
-                    <input className="full-width" type="text" id="name" name="name" value={inputOperation.name} onChange={handleChanges}  />
+                    <input type="text" id="name" name="name" value={inputOperation.name} onChange={handleChanges}  />
                 </div>
                 <div className="form-block">
                     <label htmlFor="description">Descrizione</label>
                     <textarea type="text" id="description" name="description" value={inputOperation.description} onChange={handleChanges} />
                 </div>
-                <div className="inline-inputs">
-                    <div className="form-block">
-                        <label htmlFor="date">Data di creazione:</label>
-                        <input type="text" id="date" name="date" value={inputOperation.date} onChange={handleChanges} placeholder="Formato: 'gg/mm/aa'" />
-                    </div>
-                    <div className="form-block">
-                        <label htmlFor="deliveryTime">Data di consegna:</label>
-                        <input type="text" id="deliveryTime" name="deliveryTime" value={inputOperation.deliveryTime} onChange={handleChanges} placeholder="Formato: 'gg/mm/aa'" />
-                    </div>
+                <div className="form-block">
+                    <label htmlFor="deliveryTime">Data di consegna:</label>
+                    <input type="text" id="deliveryTime" name="deliveryTime" value={inputOperation.deliveryTime} onChange={handleChanges} placeholder="Formato: 'gg/mm/aa'" />
                 </div>
                 <div className="form-block">
                     <label htmlFor="description">Stato</label>
