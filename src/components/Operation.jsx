@@ -45,11 +45,11 @@ function Operation({ operation, operations, setOperations }) {
                 <p>{operation.description ? operation.description : "Senza descrizione"}</p>
             </div>
 
-            <div className="event-schedules">
-                {operation.state !== "Completato" ? 
+            {operation.state !== "Completato" ? 
+                <div className="event-schedules">
                     <p>Da consegnare: {operation.deliveryTime ? operation.deliveryTime : "--"}</p>
-                : null }
-            </div>
+                </div>
+            : null }
 
             <div className="event-footer">
                 {operation.state !== "Completato" ? 

@@ -9,6 +9,7 @@ import OperationForm from "./OperationForm";
 function FirstView() {
     const [operations, setOperations] = React.useState([]);
     const [isAddShowed, setIsAddShowed] = React.useState(false);
+    const [loading, setLoading] = React.useState(true);
 
     async function getOperations() {
         try {
@@ -16,6 +17,8 @@ function FirstView() {
             setOperations(response.data);
         } catch (error) {
             console.log(error);
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -36,7 +39,13 @@ function FirstView() {
                 </button>   
             </div>
             <div className="events-container">
-                {operations.length === 0 && <p>Non ci sono interventi.</p>}
+                {loading && 
+                <div className="loading-container">
+                    <div class="spinner-border text-dark" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>}
+                {operations.length === 0 && !loading && <p>Non ci sono interventi.</p>}
                 {operations.map((operation) => (
                     <Operation key={operation.id} operation={operation} operations={operations} setOperations={setOperations} />
                 ))}
@@ -44,7 +53,7 @@ function FirstView() {
 
             {isAddShowed ? 
                 <div className="add-overlay">
-                    <OperationForm setIsShowed={setIsAddShowed} getOperations={getOperations} />
+                    <OperationForm setIsShowed={setIsAddShowed} getOperations={getOperations} setLoading={setLoading} />
                 </div> : null}
         </section> 
     );

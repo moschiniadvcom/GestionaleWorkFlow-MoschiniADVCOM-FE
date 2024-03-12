@@ -39,8 +39,22 @@
     font-size: 2.25rem;
 }
 
+.loading-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+}
+
 .events-container {
+    position: relative;
     width: 90%;
+    height: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;

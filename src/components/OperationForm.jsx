@@ -3,7 +3,7 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
-function OperationForm({ setIsShowed, getOperations, operation, method, setOperations, operations }) {
+function OperationForm({ setIsShowed, getOperations, operation, method, setOperations, setLoading }) {
     const [selectedState, setSelectedState] = React.useState("In corso");
     const [inputOperation, setInputOperation] = React.useState({
         name: "",
@@ -40,10 +40,13 @@ function OperationForm({ setIsShowed, getOperations, operation, method, setOpera
 
     async function addOperation() {
         try {
+            setLoading(true);
             const response = await axios.post("https://gestionaleworkflow-moschiniadvcom-be.onrender.com/api/addOperation", inputOperation);
             console.log(response.data);
         } catch (error) {
             console.log(error);
+        } finally {
+            setLoading(false);
         }
     }
 
