@@ -70,6 +70,7 @@ function OperationForm({ setIsShowed, getOperations, operation, method, setOpera
 
         setIsShowed(false);
         getOperations();
+        window.location.reload();
     }
 
     function handleEditSubmit() {
