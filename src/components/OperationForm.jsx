@@ -41,7 +41,7 @@ function OperationForm({ setIsShowed, getOperations, operation, method, setOpera
 
     async function addOperation() {
         try {
-            const response = await axios.post("http://localhost:5000/api/addOperation", inputOperation);
+            const response = await axios.post("https://gestionaleworkflow-moschiniadvcom-be.onrender.com/api/addOperation", inputOperation);
             console.log(response.data);
         } catch (error) {
             console.log(error);
@@ -50,7 +50,7 @@ function OperationForm({ setIsShowed, getOperations, operation, method, setOpera
 
     async function editOperation(id) {
         try {
-            const response = await axios.patch(`http://localhost:5000/api/updateOperation/${id}`, inputOperation);
+            const response = await axios.patch(`https://gestionaleworkflow-moschiniadvcom-be.onrender.com/api/updateOperation/${id}`, inputOperation);
             console.log(response.data);
         } catch (error) {
             console.log(error);
