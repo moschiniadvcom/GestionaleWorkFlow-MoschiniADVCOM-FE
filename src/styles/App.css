@@ -35,7 +35,7 @@
 }
 
 .view-title {
-    font-size: 2.25rem;
+    font-size: clamp(2rem, 1.468rem + 1.702vw, 3rem);
     font-weight: bold;
     margin: 0;
 }
@@ -109,18 +109,18 @@
 }
 
 .event-header h3 {
-    font-size: 1.75rem;
+    font-size: clamp(1.375rem, 1.176rem + 0.638vw, 1.75rem);
     font-weight: bold;
     margin: 0;
 }
 
 .event-header p {
-    font-size: 1.5rem;
+    font-size: clamp(1.25rem, 1.117rem + 0.426vw, 1.5rem);
     margin: 0;
 }
 
 .event-details p {
-    font-size: 1.5rem;
+    font-size: clamp(1.125rem, 0.926rem + 0.638vw, 1.5rem);
     margin: 0;
 }
 
@@ -212,7 +212,7 @@
 }
 
 .plus-icon {
-    margin-left: 1rem;
+    margin-left: .5rem;
 }
 
 .add-overlay {
@@ -372,20 +372,33 @@
 
     .complete-btn, .edit-btn, .delete-btn {
         width: 100%;
+        font-size: .875rem;
     }
 }
 
 @media (max-width: 768px) {
     .first-view, .second-view {
         width: 100%;
+        height: 100vh;
     }
 
     .second-view {
         display: none;
     }
 
+    .loading-container {
+        width: 100vw;
+    }
+
+    .add-btn {
+        padding: 0.75rem 1rem;
+    }
+
     .add-overlay {
         width: 100vw;
+        height: 100vh;
+        padding-top: 3rem;
+        align-items: flex-start;
     }
 
     .event-schedules {
@@ -395,5 +408,9 @@
 
     .event-schedules p {
         text-align: left;
+    }
+
+    .event-footer {
+        gap: .5rem;
     }
 }
