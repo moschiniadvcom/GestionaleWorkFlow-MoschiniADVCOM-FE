@@ -9,9 +9,9 @@
 
 .dashboard {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .first-view, .second-view {
@@ -56,7 +56,6 @@
 .events-container {
     overflow-y: auto;
     width: 90%;
-    height: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -377,9 +376,9 @@
 }
 
 @media (max-width: 768px) {
-    .first-view, .second-view {
+    .first-view {
         width: 100%;
-        height: 100vh;
+        min-height: 100vh;
     }
 
     .second-view {
@@ -399,6 +398,11 @@
         height: 100vh;
         padding-top: 3rem;
         align-items: flex-start;
+    }
+
+    .events-container {
+        overflow-y: visible;
+        padding-bottom: 2rem;
     }
 
     .event-schedules {
