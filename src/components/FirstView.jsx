@@ -41,8 +41,8 @@ function FirstView() {
             <div className="events-container">
                 {loading && 
                 <div className="loading-container">
-                    <div class="spinner-border text-dark" role="status">
-                        <span class="sr-only">Loading...</span>
+                    <div className="spinner-border text-dark" role="status">
+                        <span className="sr-only">Loading...</span>
                     </div>
                 </div>}
                 {operations.length === 0 && !loading && <p>Non ci sono interventi.</p>}
@@ -53,7 +53,7 @@ function FirstView() {
 
             {isAddShowed ? 
                 <div className="add-overlay">
-                    <OperationForm setIsShowed={setIsAddShowed} getOperations={getOperations} setLoading={setLoading} />
+                    <OperationForm setIsShowed={setIsAddShowed} getOperations={getOperations} setLoading={setLoading} setOperations={setOperations} />
                 </div> : null}
         </section> 
     );

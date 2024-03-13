@@ -38,7 +38,9 @@ function OperationForm({ setIsShowed, getOperations, operation, method, setOpera
         });
     }
 
-    async function addOperation() {
+    async function handleAddSubmit(event) {
+        event.preventDefault();
+
         try {
             setLoading(true);
             const response = await axios.post("https://gestionaleworkflow-moschiniadvcom-be.onrender.com/api/addOperation", inputOperation);
@@ -48,21 +50,6 @@ function OperationForm({ setIsShowed, getOperations, operation, method, setOpera
         } finally {
             setLoading(false);
         }
-    }
-
-    async function editOperation(id) {
-        try {
-            const response = await axios.patch(`https://gestionaleworkflow-moschiniadvcom-be.onrender.com/api/updateOperation/${id}`, inputOperation);
-            console.log(response.data);
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    function handleAddSubmit(event) {
-        event.preventDefault();
-
-        addOperation();
 
         setInputOperation({
             name: "",
@@ -73,13 +60,20 @@ function OperationForm({ setIsShowed, getOperations, operation, method, setOpera
 
         setIsShowed(false);
         getOperations();
-        window.location.reload();
     }
 
-    function handleEditSubmit() {
+    async function handleEditSubmit(event) {
+        event.preventDefault();
+
         const id = operation.id;
 
-        editOperation(id);
+        try {
+            const response = await axios.patch(`https://gestionaleworkflow-moschiniadvcom-be.onrender.com/api/updateOperation/${id}`, inputOperation);
+            console.log(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+
         setOperations((prevValue) => {
             return prevValue.map((operation) => {
                 if (operation.id === id) {
