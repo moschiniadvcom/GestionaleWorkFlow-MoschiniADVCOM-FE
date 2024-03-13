@@ -112,7 +112,7 @@ function OperationForm({ setIsShowed, getOperations, operation, method, setOpera
                 </div>
                 <div className="form-block">
                     <label htmlFor="delivery_time">Data di consegna:</label>
-                    <input type="text" id="delivery_time" name="delivery_time" value={inputOperation.delivery_time} onChange={handleChanges} placeholder="Formato: 'gg/mm/aa'" />
+                    <input type="text" id="delivery_time" name="delivery_time" value={inputOperation.delivery_time} onChange={handleChanges} placeholder="Testo o 'gg/mm/aaaa'" />
                 </div>
                 <div className="form-block">
                     <label htmlFor="description">Stato</label>
