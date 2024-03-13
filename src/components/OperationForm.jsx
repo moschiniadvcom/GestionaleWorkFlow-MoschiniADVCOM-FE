@@ -8,7 +8,7 @@ function OperationForm({ setIsShowed, getOperations, operation, method, setOpera
     const [inputOperation, setInputOperation] = React.useState({
         name: "",
         description: "",
-        deliveryTime: "",
+        delivery_time: "",
         state: selectedState
     });
 
@@ -43,7 +43,7 @@ function OperationForm({ setIsShowed, getOperations, operation, method, setOpera
 
         try {
             setLoading(true);
-            const response = await axios.post("https://gestionaleworkflow-moschiniadvcom-be.onrender.com/api/addOperation", inputOperation);
+            const response = await axios.post("http://localhost:5000/api/addOperation", inputOperation);
             console.log(response.data);
         } catch (error) {
             console.log(error);
@@ -54,7 +54,7 @@ function OperationForm({ setIsShowed, getOperations, operation, method, setOpera
         setInputOperation({
             name: "",
             description: "",
-            deliveryTime: "",
+            delivery_time: "",
             state: selectedState
         });
 
@@ -68,7 +68,7 @@ function OperationForm({ setIsShowed, getOperations, operation, method, setOpera
         const id = operation.id;
 
         try {
-            const response = await axios.patch(`https://gestionaleworkflow-moschiniadvcom-be.onrender.com/api/updateOperation/${id}`, inputOperation);
+            const response = await axios.patch(`http://localhost:5000/api/updateOperation/${id}`, inputOperation);
             console.log(response.data);
         } catch (error) {
             console.log(error);
@@ -81,7 +81,7 @@ function OperationForm({ setIsShowed, getOperations, operation, method, setOpera
                         ...operation,
                         name: inputOperation.name,
                         description: inputOperation.description,
-                        deliveryTime: inputOperation.deliveryTime,
+                        delivery_time: inputOperation.delivery_time,
                         state: inputOperation.state
                     };
                 } else {
@@ -111,8 +111,8 @@ function OperationForm({ setIsShowed, getOperations, operation, method, setOpera
                     <textarea type="text" id="description" name="description" value={inputOperation.description} onChange={handleChanges} />
                 </div>
                 <div className="form-block">
-                    <label htmlFor="deliveryTime">Data di consegna:</label>
-                    <input type="text" id="deliveryTime" name="deliveryTime" value={inputOperation.deliveryTime} onChange={handleChanges} placeholder="Formato: 'gg/mm/aa'" />
+                    <label htmlFor="delivery_time">Data di consegna:</label>
+                    <input type="text" id="delivery_time" name="delivery_time" value={inputOperation.delivery_time} onChange={handleChanges} placeholder="Formato: 'gg/mm/aa'" />
                 </div>
                 <div className="form-block">
                     <label htmlFor="description">Stato</label>

@@ -13,7 +13,7 @@ function FirstView() {
 
     async function getOperations() {
         try {
-            const response = await axios.get("https://gestionaleworkflow-moschiniadvcom-be.onrender.com/api/getOperations");
+            const response = await axios.get("http://localhost:5000/api/getOperations");
             setOperations(response.data);
         } catch (error) {
             console.log(error);

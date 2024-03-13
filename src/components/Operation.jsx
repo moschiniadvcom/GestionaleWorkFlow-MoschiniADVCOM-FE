@@ -12,7 +12,7 @@ function Operation({ operation, operations, setOperations }) {
 
     async function handleDeleteClick() {
         const id = operation.id;
-        await axios.delete(`https://gestionaleworkflow-moschiniadvcom-be.onrender.com/api/deleteOperation/${id}`);
+        await axios.delete(`http://localhost:5000/api/deleteOperation/${id}`);
 
         const newOperation = operations.filter((operation) => operation.id !== id);
         setOperations(newOperation);
@@ -22,7 +22,7 @@ function Operation({ operation, operations, setOperations }) {
         const id = operation.id;
         const newOperation = { ...operation, state: "Completato" };
 
-        await axios.patch(`https://gestionaleworkflow-moschiniadvcom-be.onrender.com/api/updateStateOperation/${id}`, newOperation);
+        await axios.patch(`http://localhost:5000/api/updateStateOperation/${id}`, newOperation);
         setOperations(operations.map((operation) => 
             operation.id === id ? newOperation : operation
         ));
@@ -47,7 +47,7 @@ function Operation({ operation, operations, setOperations }) {
 
             {operation.state !== "Completato" ? 
                 <div className="event-schedules">
-                    <p>Da consegnare: {operation.deliveryTime ? operation.deliveryTime : "--"}</p>
+                    <p>Da consegnare: {operation.delivery_time ? operation.delivery_time : "--"}</p>
                 </div>
             : null }
 
