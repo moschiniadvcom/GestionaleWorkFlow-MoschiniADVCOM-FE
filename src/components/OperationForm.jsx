@@ -75,19 +75,17 @@ function OperationForm({ setIsShowed, getOperations, operation, method, setOpera
         }
 
         setOperations((prevValue) => {
-            return prevValue.map((op) => {
-                if (op.id === id) {
-                    const updatedOperation = { ...operation };
-                    
-                    for (const key in inputOperation) {
-                        if (inputOperation.hasOwnProperty(key) && inputOperation[key] !== "") {
-                            updatedOperation[key] = inputOperation[key];
-                        }
-                    }
-                    
-                    return updatedOperation;
+            return prevValue.map((operation) => {
+                if (operation.id === id) {
+                    return {
+                        ...operation,
+                        name: inputOperation.name,
+                        description: inputOperation.description,
+                        delivery_time: inputOperation.delivery_time,
+                        state: inputOperation.state
+                    };
                 } else {
-                    return op;
+                    return operation;
                 }
             });
         });
