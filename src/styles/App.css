@@ -8,37 +8,37 @@
 }
 
 .dashboard {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
     min-height: 100vh;
 }
 
 .first-view, .second-view {
-    width: 50%;
-    height: 100vh;
-}
-
-.first-view, .second-view {
+    width: min(1000px, 100%);
+    margin: 0 auto;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    padding-block: 1.5rem;
+    padding: 8rem 1rem 1.5rem 1rem;
 }
 
 .first-view-header, .second-view-header {
-    width: 90%;
-    margin: 0 auto;
+    width: min(1000px, 100%);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 1.5rem 1rem 1.5rem 1rem;
 }
 
 .view-title {
     font-size: clamp(2rem, 1.468rem + 1.702vw, 3rem);
     font-weight: bold;
     margin: 0;
-}
+}   
 
 .loading-container {
     display: flex;
@@ -48,14 +48,14 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 50vw;
+    width: 100%;
     background-color: white;
     z-index: 999;
 }
 
 .events-container {
     overflow-y: auto;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -69,7 +69,7 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
     transition: all .3s ease-in-out;
 }
 
@@ -108,7 +108,7 @@
 }
 
 .event-header h3 {
-    font-size: clamp(1.375rem, 1.176rem + 0.638vw, 1.75rem);
+    font-size: clamp(1.5rem, 1.101rem + 1.277vw, 2.25rem);
     font-weight: bold;
     margin: 0;
 }
@@ -125,8 +125,7 @@
 
 .event-schedules {
     display: flex;
-    justify-content: flex-end;
-    gap: 2rem;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -143,8 +142,7 @@
 
 .event-footer {
     display: flex;
-    gap: 1rem;
-    justify-content: space-between;
+    gap: 1.5rem;
     align-items: center;
 }
 
@@ -215,34 +213,18 @@
 }
 
 .add-overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 50vw;
+    width: 100vw;
     height: 100vh;
+    overflow-x: hidden;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 100;
-}
-
-.no-see-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50vw;
-    height: 100vh;
-    background-color: white;
-    opacity: .9;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-}
-
-.no-see-overlay p {
-    font-size: 1.875rem;
+    animation: fadeIn .5s ease-in-out;
 }
 
 .add-form {
@@ -364,14 +346,12 @@
     }
 }
 
-@media (max-width: 992px) {
-    .event-footer {
-        flex-direction: column;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
     }
-
-    .complete-btn, .edit-btn, .delete-btn {
-        width: 100%;
-        font-size: .875rem;
+    to {
+        opacity: 1;
     }
 }
 
@@ -407,14 +387,7 @@
 
     .event-schedules {
         flex-direction: column;
+        align-items: flex-start;
         gap: 1rem;
-    }
-
-    .event-schedules p {
-        text-align: left;
-    }
-
-    .event-footer {
-        gap: .5rem;
     }
 }

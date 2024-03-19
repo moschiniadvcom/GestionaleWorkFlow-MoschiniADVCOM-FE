@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck, faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 import OperationForm from "./OperationForm";
 
@@ -54,11 +56,11 @@ function Operation({ operation, operations, setOperations }) {
             <div className="event-footer">
                 {operation.state !== "Completato" ? 
                     <>
-                    <button className="complete-btn" onClick={handleCompletedStateChange}>Segna come completato</button>
-                    <button onClick={handleEditClick} className="edit-btn">Modifica</button>
+                    <FontAwesomeIcon icon={faCheck} className="complete-btn" onClick={handleCompletedStateChange} />
+                    <FontAwesomeIcon icon={faPen} onClick={handleEditClick} className="edit-btn" />
                     </> : null
                 }
-                <button className="delete-btn" onClick={handleDeleteClick}>Elimina intervento</button>
+                <FontAwesomeIcon icon={faTrash} className="delete-btn" onClick={handleDeleteClick} />
             </div>
 
             {isEditShowed ? 
