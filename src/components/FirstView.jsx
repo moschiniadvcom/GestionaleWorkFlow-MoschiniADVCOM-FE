@@ -14,7 +14,8 @@ function FirstView() {
     async function getOperations() {
         try {
             const response = await axios.get("https://gestionaleworkflow-moschiniadvcom-be.onrender.com/api/getOperations");
-            setOperations(response.data);
+            const reversedData = response.data.reverse();
+            setOperations(reversedData);
         } catch (error) {
             console.log(error);
         } finally {

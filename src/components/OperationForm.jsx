@@ -68,27 +68,27 @@ function OperationForm({ setIsShowed, getOperations, operation, method, setOpera
         const id = operation.id;
 
         try {
-            const response = await axios.patch(`https://gestionaleworkflow-moschiniadvcom-be.onrender.com/api/updateOperation/${id}`, inputOperation);
+            const response = await axios.put(`https://gestionaleworkflow-moschiniadvcom-be.onrender.com/api/updateOperation/${id}`, inputOperation);
             console.log(response.data);
+
+            setOperations((prevValue) => {
+                return prevValue.map((operation) => {
+                    if (operation.id === id) {
+                        return {
+                            ...operation,
+                            name: inputOperation.name,
+                            description: inputOperation.description,
+                            delivery_time: inputOperation.delivery_time,
+                            state: inputOperation.state
+                        };
+                    } else {
+                        return operation;
+                    }
+                });
+            });
         } catch (error) {
             console.log(error);
         }
-
-        setOperations((prevValue) => {
-            return prevValue.map((operation) => {
-                if (operation.id === id) {
-                    return {
-                        ...operation,
-                        name: inputOperation.name,
-                        description: inputOperation.description,
-                        delivery_time: inputOperation.delivery_time,
-                        state: inputOperation.state
-                    };
-                } else {
-                    return operation;
-                }
-            });
-        });
 
         setIsShowed(false);
     }
