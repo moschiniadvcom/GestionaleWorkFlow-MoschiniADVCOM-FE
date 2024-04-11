@@ -75,6 +75,7 @@
 
 .event-completed {
     background-color: #ceffcb;
+    border: 2px solid #00d312; 
 }
 
 .highlight-red {
@@ -94,10 +95,12 @@
 
 .event-in-progress {
     background-color: #fff8b7;
+    border: 2px solid #ffcc00;
 }
 
 .event-to-do {
     background-color: #ffd2d2;
+    border: 2px solid #ff0000;
 }
 
 .event-header {
