@@ -43,7 +43,7 @@ function OperationForm({ setIsShowed, getOperations, operation, method, setOpera
 
         try {
             setLoading(true);
-            const response = await axios.post("https://gestionaleworkflow-moschiniadvcom-be.onrender.com/api/addOperation", inputOperation);
+            const response = await axios.post("http://localhost:5000/api/addOperation", inputOperation);
             console.log(response.data);
         } catch (error) {
             console.log(error);
@@ -68,7 +68,7 @@ function OperationForm({ setIsShowed, getOperations, operation, method, setOpera
         const id = operation.id;
 
         try {
-            const response = await axios.put(`https://gestionaleworkflow-moschiniadvcom-be.onrender.com/api/updateOperation/${id}`, inputOperation);
+            const response = await axios.put(`http://localhost:5000/api/updateOperation/${id}`, inputOperation);
             console.log(response.data);
 
             setOperations((prevValue) => {
@@ -112,7 +112,7 @@ function OperationForm({ setIsShowed, getOperations, operation, method, setOpera
                 </div>
                 <div className="form-block">
                     <label htmlFor="delivery_time">Data di consegna:</label>
-                    <input type="text" id="delivery_time" name="delivery_time" value={inputOperation.delivery_time} onChange={handleChanges} placeholder="Testo o 'gg/mm/aaaa'" />
+                    <input type="date" id="delivery_time" name="delivery_time" value={inputOperation.delivery_time} onChange={handleChanges} placeholder="Testo o 'gg/mm/aaaa'" />
                 </div>
                 <div className="form-block">
                     <label htmlFor="description">Stato</label>

@@ -14,7 +14,7 @@ function Operation({ operation, operations, setOperations }) {
 
     async function handleDeleteClick() {
         const id = operation.id;
-        const response = await axios.delete(`https://gestionaleworkflow-moschiniadvcom-be.onrender.com/api/deleteOperation/${id}`);
+        const response = await axios.delete(`http://localhost:5000/api/deleteOperation/${id}`);
         console.log(response.data);
 
         const newOperation = operations.filter((operation) => operation.id !== id);
@@ -25,7 +25,7 @@ function Operation({ operation, operations, setOperations }) {
         const id = operation.id;
         const newOperation = { ...operation, state: "Completato" };
 
-        const response = await axios.patch(`https://gestionaleworkflow-moschiniadvcom-be.onrender.com/api/updateStateOperation/${id}`, newOperation);
+        const response = await axios.patch(`http://localhost:5000/api/updateStateOperation/${id}`, newOperation);
         console.log(response.data);
 
         setOperations(operations.map((operation) => 
