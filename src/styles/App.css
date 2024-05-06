@@ -266,13 +266,46 @@
     display: block;
 }
 
-.form-block textarea {
-    width: 100%;
+.description {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.description button {
+    color: black;
+    background-color: transparent;
+    border: none;
     padding: 0.5rem;
-    height: 80px;
-    border: 1px solid #ccc;
     border-radius: 5px;
-    margin-top: 0.25rem;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.description-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.description-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+    background-color: rgb(71, 71, 71);
+    padding: .25rem .5rem;
+    width: fit-content;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.125rem;
+}
+
+.description button:hover {
+    background-color: #cccccc81;
 }
 
 .form-block select {
@@ -288,6 +321,7 @@
     background-color: #ccc;
     color: black;
     border: none;
+    width: 150px;
     padding: 0.75rem 1.5rem;
     border-radius: 5px;
     cursor: pointer;
@@ -335,6 +369,16 @@
     display: flex;
     flex-direction: column;
     gap: .5rem;
+}
+
+.error {
+    color: white;
+    font-weight: bold;
+    padding: .5rem;
+    border-radius: 5px;
+    background-color: #ff0000b6;
+    margin: 0;
+    animation: fadeIn .3s ease-in-out;
 }
 
 @keyframes fadeInFromBottom {
