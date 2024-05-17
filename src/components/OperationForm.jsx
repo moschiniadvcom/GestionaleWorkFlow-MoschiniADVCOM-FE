@@ -101,7 +101,7 @@ function OperationForm({
     try {
       setBtnLoading(true);
       const response = await axios.post(
-        "http://localhost:5000/api/addOperation",
+        "https://gestionaleworkflow-moschiniadvcom-be.onrender.com/api/addOperation",
         newOperation
       );
       console.log(response);
@@ -144,7 +144,7 @@ function OperationForm({
     try {
       setBtnLoading(true);
       await axios.put(
-        `http://localhost:5000/api/updateOperation/${id}`,
+        `https://gestionaleworkflow-moschiniadvcom-be.onrender.com/api/updateOperation/${id}`,
         newOperation
       );
 

@@ -17,7 +17,9 @@ function Operation({ operation, operations, setOperations, fetchOperations }) {
   async function handleDeleteClick(id) {
     try {
       setIconLoading(true);
-      await axios.delete(`http://localhost:5000/api/deleteOperation/${id}`);
+      await axios.delete(
+        `https://gestionaleworkflow-moschiniadvcom-be.onrender.com/api/deleteOperation/${id}`
+      );
 
       setOperations(operations.filter((operation) => operation.id !== id));
     } catch (error) {
@@ -33,7 +35,7 @@ function Operation({ operation, operations, setOperations, fetchOperations }) {
 
     try {
       await axios.patch(
-        `http://localhost:5000/api/updateStateOperation/${id}`,
+        `https://gestionaleworkflow-moschiniadvcom-be.onrender.com/api/updateStateOperation/${id}`,
         newOperation
       );
 
