@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import logo from "../images/logo.svg";
 
 import Operation from "./Operation";
 import OperationForm from "./OperationForm";
@@ -35,7 +36,10 @@ function FirstView() {
   return (
     <section className="first-view">
       <div className="first-view-header">
-        <h2 className="view-title">Workflow</h2>
+        <div className="header-content">
+            <img className="logo" src={logo} alt="Logo" />
+            <h2 className="view-title">Workflow</h2>
+        </div>
         <button onClick={handleAddClick} className="add-btn">
           Aggiungi nuovo <FontAwesomeIcon className="plus-icon" icon={faPlus} />
         </button>
